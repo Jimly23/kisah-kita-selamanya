@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import musik from '../assets/audio/musik.mp3';
 
 export const MusicPlayer: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -10,7 +11,8 @@ export const MusicPlayer: React.FC = () => {
 
   // For demo purposes, we'll use a placeholder URL
   // In real implementation, you'd add an actual MP3 file to the public folder
-  const audioSrc = "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav"; // Placeholder
+  const audioSrc = musik; // Placeholder
+  // const audioSrc = "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav"; // Placeholder
 
   useEffect(() => {
     if (audioRef.current) {

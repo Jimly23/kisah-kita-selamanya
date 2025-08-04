@@ -18,7 +18,12 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        playwrite: ['"Playwrite AU QLD"', 'serif'], // pastikan tanda kutip dua
+      },
 			colors: {
+				vanilla: '#fff7f1',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

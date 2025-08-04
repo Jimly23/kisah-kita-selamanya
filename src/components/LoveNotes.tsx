@@ -41,7 +41,7 @@ export const LoveNotes: React.FC = () => {
           {loveNotes.map((note, index) => (
             <div
               key={note.id}
-              className="bg-card/70 backdrop-blur-sm p-6 rounded-3xl shadow-soft hover:shadow-cute transition-all duration-300 transform hover:scale-105 hover:-rotate-1"
+              className={`bg-card/70 backdrop-blur-sm p-6 rounded-3xl shadow-soft hover:shadow-cute transition-all duration-300 transform ${index === 2 ? 'scale-105 -rotate-1' : ''}`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="relative">

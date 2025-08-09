@@ -23,7 +23,7 @@ const GaleryLove = () => {
       <img src={bintang} data-aos="fade-up" data-aos-delay="200" className='absolute -right-20 -bottom-10 sm:-right-20 sm:-bottom-10 w-[200px] sm:w-[300px]' />
       <img src={gif2} data-aos="fade-up" data-aos-delay="400" className='absolute left-10 bottom-10 sm:left-40 sm:bottom-10 w-[150px] sm:w-[200px]' />
 
-      <p data-aos="fade-up" data-aos-delay="600" className='absolute right-5 bottom-40 sm:text-lg sm:right-40 sm:bottom-80 w-[100px] sm:w-[250px] text-end font-playwrite'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero, ab.</p>
+      <p data-aos="fade-up" data-aos-delay="600" className='absolute right-5 bottom-40 sm:text-lg sm:right-40 sm:bottom-80 w-[100px] sm:w-[250px] text-end font-playwrite'>Terimakasih telah memberiku cinta yang belum pernah aku temukan sebelumnya.</p>
       <div>
         <div className='flex items-center justify-center gap-x-5 mb-5'>
           <div data-aos="fade-up" data-aos-delay="300" className='relative'>

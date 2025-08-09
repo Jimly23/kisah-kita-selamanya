@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Heart, Sparkles } from 'lucide-react';
 import { RelationshipTimer } from '@/components/RelationshipTimer';
-import { MusicPlayer } from '@/components/MusicPlayer';
+import { MusicPlayer, MusicPlayerRef } from '@/components/MusicPlayer';
 import { PhotoGallery } from '@/components/PhotoGallery';
 import { LoveNotes } from '@/components/LoveNotes';
 import { RelationshipPrinciples } from '@/components/RelationshipPrinciples';
@@ -43,6 +43,8 @@ import Buket from '@/components/Buket';
 
 const Index = () => {
   const relationshipStartDate = new Date('2025-01-19');
+  const [open, setOpen] = useState(true);
+  const musicRef = useRef<MusicPlayerRef>(null);
 
   // aos
   useEffect(() => {
@@ -52,18 +54,38 @@ const Index = () => {
     });
   }, []);
 
+  // scoll
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden'; // Kunci scroll
+    } else {
+      document.body.style.overflow = ''; // Kembalikan scroll normal
+    }
+
+    // Pastikan scroll dikembalikan kalau komponen unmount
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
+  const handleOpenClick = () => {
+    setOpen(false);
+    musicRef.current?.playMusic();
+  };
+
+
   return (
     <div className="min-h-screen bg-background">
-      
+
       <Buket />
-      
+
       <Section2 />
 
       <GaleryLove />
 
       <section className="py-16 relative bg-vanilla mx-3 sm:mx-0">
         <RelationshipTimer startDate={relationshipStartDate} />
-        
+
         <div className="hidden sm:block absolute top-10 right-10 animate-float" style={{ animationDelay: '3s' }}>
           <img src={gif3}
             className="w-24" />
@@ -94,9 +116,9 @@ const Index = () => {
           <img src={bintang} data-aos="fade-up" data-aos-delay="300" className='absolute z-10 -bottom-[470px] sm:-bottom-[250px] -left-[200px]' />
 
           <div className='relative flex items-center justify-center'>
-            <div data-aos="zoom-in" data-aos-delay="300" className='relative w-[90%] sm:w-[80%] mx-auto'>
+            <div data-aos="zoom-in" data-aos-delay="300" className='relative w-[90%] sm:w-[80%] mx-auto flex items-center justify-center'>
               <img src={kuote} className='relative' />
-              <p className='absolute top-[130px] sm:top-[200px] font-playwrite text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, eaque?</p>
+              <p className='absolute top-[130px] sm:top-[200px] font-playwrite text-center'>Thank you for being my home and my favorite person.</p>
             </div>
           </div>
 
@@ -127,17 +149,17 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="relative flex items-center justify-center h-screen bg-cover bg-center bg-no-repeat overflow-hidden"
+      <section className="relative flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden"
         style={{ backgroundImage: `url(${sectionvideo})` }}>
         <div className="absolute inset-0 bg-white/30 backdrop-blur-sm z-10" />
-        <div className='w-[80%] h-[60%] sm:w-[60%] sm:h-[70%] mx-auto bg-transparent relative z-10 rounded-xl overflow-hidden border-4 border-white'>
+        <div className='w-[100%] h-[60%] sm:w-[60%] sm:h-[70%] mx-auto bg-transparent relative z-10'>
           <video
             src={video}
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover"
+            className="w-full border-[5px] rounded-xl border-white"
           />
           <img src={loveUngu} className='absolute right-5 top-5 w-[80px]' />
         </div>
@@ -153,19 +175,29 @@ const Index = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex justify-center items-center gap-2 mb-4">
             <Heart className="text-primary-foreground animate-pulse-heart" size={24} />
-            <h3 className="text-2xl font-bold text-primary-foreground">Cinta Kita Abadi</h3>
+            <h3 className="text-2xl font-bold text-primary-foreground">Our Promise</h3>
             <Heart className="text-primary-foreground animate-pulse-heart" size={24} />
           </div>
           <p className="text-primary-foreground/80 text-lg mb-6">
-            "Dalam setiap hari yang berlalu, cinta kita semakin kuat.
-            Dalam setiap tantangan yang datang, kita semakin bersatu.
-            Selamanya dan selalu, kita akan bersama."
+            "Let's take care of this relationship together. No matter what the problem is, don't forget to forgive each other. Don't let our egos get the better of us and ruin everything."
           </p>
         </div>
       </footer>
 
       {/* Music Player */}
-      <MusicPlayer />
+      <div className='absolute bottom-5 right-5 z-10'>
+        <MusicPlayer ref={musicRef} />
+      </div>
+
+      {/* Open */}
+      {open &&
+        <div className='fixed top-0 right-0 bottom-0 left-0 z-50 bg-black bg-opacity-50 flex items-center justify-center'>
+          <div className='w-[150px] h-[150px] bg-white rounded-lg flex flex-col justify-center'>
+            <img src={gif1} className='w-[100px] mx-auto' />
+            <button onClick={handleOpenClick} className='text-playwrite text-sm font-bold mt-2 bg-orange-500 mx-2 rounded-full py-1 text-white mb-1'>Open</button>
+          </div>
+        </div>
+      }
     </div>
   );
 };

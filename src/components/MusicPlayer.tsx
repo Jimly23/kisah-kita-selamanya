@@ -1,18 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react';
+// MusicPlayer.tsx
+import React, { useState, useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import musik from '../assets/audio/musik.mp3';
 
-export const MusicPlayer: React.FC = () => {
+export interface MusicPlayerRef {
+  playMusic: () => void;
+}
+
+export const MusicPlayer = forwardRef<MusicPlayerRef>((props, ref) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0.3);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // For demo purposes, we'll use a placeholder URL
-  // In real implementation, you'd add an actual MP3 file to the public folder
-  const audioSrc = musik; // Placeholder
-  // const audioSrc = "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav"; // Placeholder
+  const audioSrc = musik;
 
   useEffect(() => {
     if (audioRef.current) {
@@ -38,6 +40,17 @@ export const MusicPlayer: React.FC = () => {
       setIsMuted(!isMuted);
     }
   };
+
+  // Supaya parent bisa panggil playMusic()
+  useImperativeHandle(ref, () => ({
+    playMusic: () => {
+      if (audioRef.current) {
+        audioRef.current.play().then(() => {
+          setIsPlaying(true);
+        }).catch(console.error);
+      }
+    }
+  }));
 
   return (
     <div className="fixed bottom-6 right-6 bg-card/90 backdrop-blur-lg p-4 rounded-full shadow-cute border border-border/20">
@@ -77,4 +90,4 @@ export const MusicPlayer: React.FC = () => {
       </div>
     </div>
   );
-};
+});

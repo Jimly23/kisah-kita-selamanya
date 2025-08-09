@@ -30,8 +30,8 @@ const Buket = () => {
     <section
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-vanilla">
       <img data-aos="fade-down" data-aos-delay="300" src={bling} alt="" className='hidden sm:block max-w-[150px] right-[10px] top-[10px] mx-auto absolute' />
-      <p data-aos="fade-right" className='hidden sm:block text-sm  absolute left-10 top-10 font-medium md:text-lg w-[300px] font-playwrite border-b-2 pb-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quos cumque natus.</p>
-      <p data-aos="fade-left" data-aos-delay="300" className='hidden sm:block text-sm  absolute right-10 bottom-30 text-end font-medium md:text-lg w-[300px] font-playwrite'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quos cumque natus.</p>
+      <p data-aos="fade-right" className='hidden sm:block text-sm  absolute left-10 top-10 font-medium md:text-lg w-[300px] font-playwrite border-b-2 pb-3'>You are special, you are mine, and I love you.</p>
+      <p data-aos="fade-left" data-aos-delay="300" className='hidden sm:block text-sm  absolute right-10 bottom-30 text-end font-medium md:text-lg w-[300px] font-playwrite'>Love you more than you know, i want to be your favorite forever.</p>
 
       {/* Hero Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">

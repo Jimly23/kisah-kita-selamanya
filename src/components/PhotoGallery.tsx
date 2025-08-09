@@ -6,6 +6,12 @@ import galeri3 from '../assets/image/galeri/galeri3.jpg'
 import galeri4 from '../assets/image/galeri/galeri4.jpg'
 import galeri5 from '../assets/image/galeri/galeri5.jpg'
 import galeri6 from '../assets/image/galeri/galeri6.jpg'
+import galeri7 from '../assets/image/galeri/galeri7.jpg'
+import galeri8 from '../assets/image/galeri/galeri8.jpg'
+import galeri9 from '../assets/image/galeri/galeri9.jpg'
+import galeri10 from '../assets/image/galeri/galeri10.jpg'
+import galeri11 from '../assets/image/galeri/galeri11.jpg'
+import galeri12 from '../assets/image/galeri/galeri12.jpg'
 
 export const PhotoGallery: React.FC = () => {
 
@@ -16,6 +22,12 @@ export const PhotoGallery: React.FC = () => {
     { id: 4, src: galeri4, caption: "Masa depan bersama" },
     { id: 5, src: galeri5, caption: "Cinta sejati" },
     { id: 6, src: galeri6, caption: "Kebersamaan indah" },
+    { id: 7, src: galeri7, caption: "Kebersamaan indah" },
+    { id: 8, src: galeri8, caption: "Kebersamaan indah" },
+    { id: 9, src: galeri9, caption: "Kebersamaan indah" },
+    { id: 10, src: galeri10, caption: "Kebersamaan indah" },
+    { id: 11, src: galeri11, caption: "Kebersamaan indah" },
+    { id: 12, src: galeri12, caption: "Kebersamaan indah" },
   ];
 
   return (

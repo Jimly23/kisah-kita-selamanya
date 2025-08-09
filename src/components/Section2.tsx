@@ -42,7 +42,7 @@ const Section2 = () => {
         </div>
 
         <div className='relative'>
-          <p className='absolute font-playwrite text-center md:text-lg font-medium max-w-[400px] mx-auto px-10 mt-20 sm:mt-64 sm:px-0'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus alias enim culpa debitis totam laborum aliquam quam sapiente, non, hic autem dolorem repellat voluptatem dicta nesciunt dolore porro tempore minima!💕❤</p>
+          <p className='absolute font-playwrite text-center md:text-lg font-medium max-w-[400px] mx-auto px-10 mt-20 sm:mt-64 sm:px-0'>Jadilah perempuan terakhirku, jadilah perempuan yang rasa sayangnya tidak pernah berubah walaupun berbagai ujian datang dalam hubungan kita. aku percaya kamu perempuan yang baik, semoga kita bisa bertahan selamanya💕❤</p>
         </div>
       </div>
     </section>
